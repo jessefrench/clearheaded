@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Activities Affected</title>
+    </head>
+    <body>
+        <h1>How did it affect your activities?</h1>
+        <form action="/attack/create-activities" method="POST">
+            <input type="checkbox" name="activitiesAffected" value="Not affected"><span>Not affected</span>
+            <input type="checkbox" name="activitiesAffected" value="Missed work"><span>Missed work</span>
+            <input type="checkbox" name="activitiesAffected" value="Slower (at work)"><span>Slower (at work)</span>
+            <input type="checkbox" name="activitiesAffected" value="Missed school"><span>Missed school</span>
+            <input type="checkbox" name="activitiesAffected" value="Slower (at school)"><span>Slower (at school)</span>
+            <input type="checkbox" name="activitiesAffected" value="Missed social activity"><span>Missed social activity</span>
+            <input type="checkbox" name="activitiesAffected" value="Missed family time"><span>Missed family time</span>
+            <input type="checkbox" name="activitiesAffected" value="Could not fall asleep"><span>Could not fall asleep</span>
+            <input type="checkbox" name="activitiesAffected" value="Woke up during sleep"><span>Woke up during sleep</span>
+            <input type="checkbox" name="activitiesAffected" value="No screen / phone"><span>No screen / phone</span>
+            <input type="checkbox" name="activitiesAffected" value="Hard to concentrate"><span>Hard to concentrate</span>
+            <input type="checkbox" name="activitiesAffected" value="Others"><span>Others</span>
+            <input type="checkbox" id="checker">
+            <input type="text" name="activitiesAffected" id="userInput" disabled="disabled" placeholder="Add activity">
+            <input type="submit">
+        </form>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

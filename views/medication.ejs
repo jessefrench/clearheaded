@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Medication</title>
+    </head>
+    <body>
+        <h1>Did you take any medication?</h1>
+        <form action="/attack/create-medication" method="POST">
+            <input type="checkbox" name="attackMedication" value="No medication"><span>No medication</span>
+            <input type="checkbox" name="attackMedication" value="Nurtec 75mg"><span>Nurtec 75mg</span>
+            <input type="checkbox" name="attackMedication" value="Zomig 5mg"><span>Zomig 5mg</span>
+            <input type="checkbox" name="attackMedication" value="Relpax 20mg"><span>Relpax 20mg</span>
+            <input type="checkbox" name="attackMedication" value="Maxalt 5mg"><span>Maxalt 5mg</span>
+            <input type="checkbox" name="attackMedication" value="Paracetamol 500mg"><span>Paracetamol 500mg</span>
+            <input type="checkbox" name="attackMedication" value="Topiramate 25mg"><span>Topiramate 25mg</span>
+            <input type="checkbox" name="attackMedication" value="Ibuprofen 200mg"><span>Ibuprofen 200mg</span>
+            <input type="checkbox" name="attackMedication" value="Sumatriptan 30mg"><span>Sumatriptan 30mg</span>
+            <input type="checkbox" name="attackMedication" value="Aimovig 70ml"><span>Aimovig 70ml</span>
+            <input type="checkbox" name="attackMedication" value="Ubrelvy 50mg"><span>Ubrelvy 50mg</span>
+            <input type="checkbox" name="attackMedication" value="Venlafaxine 150mg"><span>Venlafaxine 150mg</span>
+            <input type="checkbox" name="attackMedication" value="Sumatriptan 100mg"><span>Sumatriptan 100mg</span>
+            <input type="checkbox" id="checker">
+            <input type="text" name="attackMedication" id="userInput" disabled="disabled" placeholder="Add medication">
+            <input type="submit">
+        </form>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

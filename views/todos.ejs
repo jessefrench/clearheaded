@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Headstrong | Home</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- <link rel="stylesheet" href="../css/style2.css"> -->
+    </head>
+    <body id="bg">
+        <div class="app-container" id="taskList">
+
+            <h1 class="app-header">Headache Tracker</h1>
+
+            <section>
+                <ul class="task-list">
+
+                    <% todos.forEach( el=> { %>
+                        <div class="container" >
+                            <li class="todoItem task-list-item draggable" draggable="true" data-id='<%=el._id%>'>
+                                <span class="<%= el.completed === true ? 'completed' : 'not' %>"><%= el.todo %></span>
+
+                                <% if(el.date !="Invalid Date" ){ %>
+                                    <span class="dateStyle">headache on <%=el.date %></span>
+                                <% } %>
+
+                                <span class="fa fa-star <%=el.important === true ? 'important' : '' %>" title="Star Task"></span>
+                                <span class="fa fa-check <%= el.completed === true ? 'completed' : 'not' %>" title = "Uncomplete"></span>
+                                <span class='del fa fa-trash delete-btn' title="Delete Task"></span>
+                            </li>
+                        </div>
+                    <% }) %>
+
+                </ul>
+            </section>
+
+            <h2><%= user.userName %>, you've had <%= left %> headaches so far.</h2>
+
+            <form action="/todos/createTodo" method='POST' class="add-task">
+                <input type="text" autocomplete="off" placeholder="Add headache type" v-model="tasks.name" @keyup.enter="newItem"
+                    class="task-input" name='todoItem'>
+                <input type="date" name="toDoDate" class="input-date">
+                <input type="submit" class="submit-task" title="Add Task">
+            </form>
+
+            <h3>Find headaches from a specific date:</h3>
+
+            <form action="/todos/getTask" method="POST">
+                <input type="date" placeholder="Find headaches" name="findTask" class="double">
+                <input type="submit">
+            </form>
+
+            <h3><a href="/attack">Record an attack</a></h3>
+            
+            <div class="logout"><a href="/logout">Log out</a></div>
+        </div>
+        <script src="../js/main.js"></script>
+        <script src="../js/drag.js"></script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pain Level</title>
+    </head>
+    <body>
+        <h1>What is the highest pain level of this attack?</h1>
+        <form action="/attack/create-pain-level" method="POST">
+            <input type="checkbox" name="painLevel" value="10" ><span>10 (hurts worst)</span>
+            <input type="checkbox" name="painLevel" value="9" ><span>9</span>
+            <input type="checkbox" name="painLevel" value="8" ><span>8 (severe)</span>
+            <input type="checkbox" name="painLevel" value="7" ><span>7</span>
+            <input type="checkbox" name="painLevel" value="6" ><span>6</span>
+            <input type="checkbox" name="painLevel" value="5" ><span>5 (moderate)</span>
+            <input type="checkbox" name="painLevel" value="4" ><span>4</span>
+            <input type="checkbox" name="painLevel" value="3" ><span>3</span>
+            <input type="checkbox" name="painLevel" value="2" ><span>2 (mild)</span>
+            <input type="checkbox" name="painLevel" value="1" ><span>1</span>
+            <input type="checkbox" name="painLevel" value="0" ><span>0 (no pain)</span>
+            <input type="submit">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Symptoms</title>
+    </head>
+    <body>
+        <h1>Are you experiencing any of these symptoms?</h1>
+        <form action="/attack/create-symptoms" method="POST">
+            <input type="checkbox" name="attackSymptoms" value="None"><span>None</span>
+            <input type="checkbox" name="attackSymptoms" value="Pounding pain"><span>Pounding pain</span>
+            <input type="checkbox" name="attackSymptoms" value="Pulsating pain"><span>Pulsating pain</span>
+            <input type="checkbox" name="attackSymptoms" value="Throbbing pain"><span>Throbbing pain</span>
+            <input type="checkbox" name="attackSymptoms" value="Worse pain if moving"><span>Worse pain if moving</span>
+            <input type="checkbox" name="attackSymptoms" value="Nausea"><span>Nausea</span>
+            <input type="checkbox" name="attackSymptoms" value="Vomiting"><span>Vomiting</span>
+            <input type="checkbox" name="attackSymptoms" value="Sensitivity to light"><span>Sensitivity to light</span>
+            <input type="checkbox" name="attackSymptoms" value="Sensitivity to noise"><span>Sensitivity to noise</span>
+            <input type="checkbox" name="attackSymptoms" value="Neck pain"><span>Neck pain</span>
+            <input type="checkbox" name="attackSymptoms" value="Giddiness"><span>Giddiness</span>
+            <input type="checkbox" name="attackSymptoms" value="Nasal congestion"><span>Nasal congestion</span>
+            <input type="checkbox" name="attackSymptoms" value="Insomsia"><span>Insomsia</span>
+            <input type="checkbox" name="attackSymptoms" value="Depressed mood"><span>Depressed mood</span>
+            <input type="checkbox" name="attackSymptoms" value="Anxiety"><span>Anxiety</span>
+            <input type="checkbox" name="attackSymptoms" value="Sensitivity to smell"><span>Sensitivity to smell</span>
+            <input type="checkbox" name="attackSymptoms" value="Heat"><span>Heat</span>
+            <input type="checkbox" name="attackSymptoms" value="Ringing in ears / Tinnitus"><span>Ringing in ears / Tinnitus</span>
+            <input type="checkbox" name="attackSymptoms" value="Fatigue"><span>Fatigue</span>
+            <input type="checkbox" name="attackSymptoms" value="Blurred vision"><span>Blurred vision</span>
+            <input type="checkbox" name="attackSymptoms" value="Moody"><span>Moody</span>
+            <input type="checkbox" name="attackSymptoms" value="Dirrhea"><span>Dirrhea</span>
+            <input type="checkbox" name="attackSymptoms" value="Confusion / light headed"><span>Confusion / light headed</span>
+            <input type="checkbox" id="checker">
+            <input type="text" name="attackSymptoms" id="userInput" disabled="disabled" placeholder="Add symptom">
+            <input type="submit">
+        </form>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

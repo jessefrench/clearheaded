@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Relief Methods</title>
+    </head>
+    <body>
+        <h1>What relief methods have you tried?</h1>
+        <form action="/attack/create-relief" method="POST">
+            <input type="checkbox" name="reliefMethod" value="No relief"><span>No relief</span>
+            <input type="checkbox" name="reliefMethod" value="Dark room rest"><span>Dark room rest</span>
+            <input type="checkbox" name="reliefMethod" value="Sleep"><span>Sleep</span>
+            <input type="checkbox" name="reliefMethod" value="Yoga / meditate"><span>Yoga / meditate</span>
+            <input type="checkbox" name="reliefMethod" value="Stay indoor"><span>Stay indoor</span>
+            <input type="checkbox" name="reliefMethod" value="Ice packs"><span>Ice packs</span>
+            <input type="checkbox" name="reliefMethod" value="Food"><span>Food</span>
+            <input type="checkbox" name="reliefMethod" value="Caffeine"><span>Caffeine</span>
+            <input type="checkbox" name="reliefMethod" value="Hot shower"><span>Hot shower</span>
+            <input type="checkbox" name="reliefMethod" value="Cold shower"><span>Cold shower</span>
+            <input type="checkbox" name="reliefMethod" value="Drink water"><span>Drink water</span>
+            <input type="checkbox" name="reliefMethod" value="Heat pad"><span>Heat pad</span>
+            <input type="checkbox" id="checker">
+            <input type="text" name="reliefMethod" id="userInput" disabled="disabled" placeholder="Add relief">
+            <input type="submit">
+        </form>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

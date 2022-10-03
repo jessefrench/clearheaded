@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aura</title>
+    </head>
+    <body>
+        <h1>Did you sense it coming?</h1>
+        <form action="/attack/create-aura" method="POST">
+            <input type="checkbox" name="attackAura" value="No"><span>No</span>
+            <input type="checkbox" name="attackAura" value="Weakness"><span>Weakness</span>
+            <input type="checkbox" name="attackAura" value="Fatigue / achiness"><span>Fatigue / achiness</span>
+            <input type="checkbox" name="attackAura" value="Visual disturbance"><span>Visual disturbance</span>
+            <input type="checkbox" name="attackAura" value="Tingling in head"><span>Tingling in head</span>
+            <input type="checkbox" name="attackAura" value="Tingling in neck"><span>Tingling in neck</span>
+            <input type="checkbox" name="attackAura" value="Tingling near eye(s)"><span>Tingling near eye(s)</span>
+            <input type="checkbox" name="attackAura" value="Yawning"><span>Yawning</span>
+            <input type="checkbox" name="attackAura" value="Muscle stiffness"><span>Muscle stiffness</span>
+            <input type="checkbox" name="attackAura" value="Irritability"><span>Irritability</span>
+            <input type="checkbox" name="attackAura" value="Headache"><span>Headache</span>
+            <input type="checkbox" name="attackAura" value="Aura only"><span>Aura only</span>
+            <input type="checkbox" name="attackAura" value="Prodrome only"><span>Prodrome only</span>
+            <input type="checkbox" name="attackAura" value=""><span>Unusually energetic</span>
+            <input type="checkbox" name="attackAura" value="Unusually energetic"><span>Unusually depressed</span>
+            <input type="checkbox" name="attackAura" value="Anxiety"><span>Anxiety</span>
+            <input type="checkbox" id="checker">
+            <input type="text" name="attackAura" id="userInput" disabled="disabled" placeholder="Add aura">
+            <input type="submit">
+        </form>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

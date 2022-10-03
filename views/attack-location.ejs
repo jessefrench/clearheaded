@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Attack Location</title>
+    </head>
+    <body>
+        <h1>Where were you when the headache started?</h1>
+        <form action="/attack/create-attack-location" method="POST">
+            <input type="checkbox" name="attackLocation" value="Home"><span>Home</span>
+            <input type="checkbox" name="attackLocation" value="Work"><span>Work</span>
+            <input type="checkbox" name="attackLocation" value="School"><span>School</span>
+            <input type="checkbox" name="attackLocation" value="In transit / commuting"><span>In transit / commuting</span>
+            <input type="checkbox" name="attackLocation" value="Bed (at home)"><span>Bed (at home)</span>
+            <input type="checkbox" name="attackLocation" value="Out"><span>Out</span>
+            <input type="checkbox" id="checker">
+            <input type="text" name="attackLocation" id="userInput" disabled="disabled" placeholder="Add location">
+            <input type="submit">
+        </form>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

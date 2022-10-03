@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Attack Time</title>
+    </head>
+    <body>
+        <h1>Start and end time of your attack?</h1>
+        <h2>Leave end time blank if attack is ongoing.</h2>
+        <form action="/attack/create-attack-time" method="POST">
+            <span>Date: </span><input type="date" name="date">
+            <span>Start: </span><input type="time" name="start">
+            <span>End: </span><input type="time" name="end">
+            <input type="submit">
+        </form>
+    </body>
+</html>

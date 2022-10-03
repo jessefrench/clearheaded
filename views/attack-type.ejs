@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Attack Type</title>
+    </head>
+    <body>
+        <h1>What are the attack type(s)?</h1>
+        <form action="/attack/create-attack-type" method="POST" onsubmit="disableEmptyInputs()" >
+            <input type="checkbox" name="attackType" value="Don't know yet"><span>Don't know yet</span>
+            <input type="checkbox" name="attackType" value="Migraine"><span>Migraine</span>
+            <input type="checkbox" name="attackType" value="Tension"><span>Tension</span>
+            <input type="checkbox" name="attackType" value="Cluster"><span>Cluster</span>
+            <input type="checkbox" name="attackType" value="Postdrome"><span>Postdrome</span>
+            <input type="checkbox" name="attackType" value="Prodrome"><span>Prodrome</span>
+            <input type="checkbox" id="checker">
+            <input type="text" name="attackType" id="userInput" disabled="disabled" placeholder="Add attack type">
+            <input type="submit">
+        </form>
+        <script src="../js/main.js"></script>
+    </body>
+</html>
