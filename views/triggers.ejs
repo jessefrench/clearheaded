@@ -5,41 +5,195 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Triggers</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <h1>Can you select every potential trigger coming to your mind?</h1>
-        <form action="/attack/create-triggers" method="POST">
-            <input type="checkbox" name="attackTriggers" value="No idea"><span>No idea</span>
-            <input type="checkbox" name="attackTriggers" value="Stress"><span>Stress</span>
-            <input type="checkbox" name="attackTriggers" value="Lack of sleep"><span>Lack of sleep</span>
-            <input type="checkbox" name="attackTriggers" value="Woke up 2h late"><span>Woke up 2h late</span>
-            <input type="checkbox" name="attackTriggers" value="Interrupted sleep"><span>Interrupted sleep</span>
-            <input type="checkbox" name="attackTriggers" value="Depressed mood"><span>Depressed mood</span>
-            <input type="checkbox" name="attackTriggers" value="Anxiety"><span>Anxiety</span>
-            <input type="checkbox" name="attackTriggers" value="Skipped meal"><span>Skipped meal</span>
-            <input type="checkbox" name="attackTriggers" value="Very variable weather"><span>Very variable weather</span>
-            <input type="checkbox" name="attackTriggers" value="Storm"><span>Storm</span>
-            <input type="checkbox" name="attackTriggers" value="Humidity above 80%"><span>Humidity above 80%</span>
-            <input type="checkbox" name="attackTriggers" value="Neck pain"><span>Neck pain</span>
-            <input type="checkbox" name="attackTriggers" value="Alcohol"><span>Alcohol</span>
-            <input type="checkbox" name="attackTriggers" value="Bright sun"><span>Bright sun</span>
-            <input type="checkbox" name="attackTriggers" value="Caffeine"><span>Caffeine</span>
-            <input type="checkbox" name="attackTriggers" value="Dehydration"><span>Dehydration</span>
-            <input type="checkbox" name="attackTriggers" value="Processed food"><span>Processed food</span>
-            <input type="checkbox" name="attackTriggers" value="Allergy reaction"><span>Allergy reaction</span>
-            <input type="checkbox" name="attackTriggers" value="Odd / strong smell"><span>Odd / strong smell</span>
-            <input type="checkbox" name="attackTriggers" value="Rebound headache"><span>Rebound headache</span>
-            <input type="checkbox" name="attackTriggers" value="Aged cheese"><span>Aged cheese</span>
-            <input type="checkbox" name="attackTriggers" value="Chocolate"><span>Chocolate</span>
-            <input type="checkbox" name="attackTriggers" value="Skipped beta blockers"><span>Skipped beta blockers</span>
-            <input type="checkbox" name="attackTriggers" value="Skipped magnesium"><span>Skipped magnesium</span>
-            <input type="checkbox" name="attackTriggers" value="Late in taking preventative"><span>Late in taking preventative</span>
-            <input type="checkbox" name="attackTriggers" value="Missed daily preventative"><span>Missed daily preventative</span>
-            <input type="checkbox" name="attackTriggers" value="Loud noises"><span>Loud noises</span>
-            <input type="checkbox" id="checker">
-            <input type="text" name="attackTriggers" id="userInput" disabled="disabled" placeholder="Add trigger">
-            <input type="submit">
-        </form>
+        <div class="hero min-h-screen bg-base-200">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl font-bold">Can you select every potential trigger coming to your mind?</h1>
+                </div>
+                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div class="card-body">
+                        <form action="/attack/create-triggers" method="POST" onsubmit="disableEmptyInputs()">
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">No idea</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="No idea">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Stress</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Stress">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Lack of sleep</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Lack of sleep">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Woke up late</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Woke up late">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Interrupted sleep</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Interrupted sleep">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Depressed mood</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Depressed mood">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Anxiety</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Anxiety">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Skipped meal</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Skipped meal">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Very variable weather</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Very variable weather">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Storm</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Storm">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Humidity above 80%</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Humidity above 80%">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Neck pain</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Neck pain">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Alcohol</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Alcohol">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Bright sun</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Bright sun">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Caffeine</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Caffeine">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Dehydration</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Dehydration">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Processed food</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Processed food">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Allergy reaction</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Allergy reaction">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Odd / strong smell</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Odd / strong smell">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Rebound headache</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Rebound headache">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Aged cheese</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Aged cheese">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Chocolate</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Chocolate">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Skipped beta blockers</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Skipped beta blockers">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Skipped magnesium</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Skipped magnesium">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Late in taking preventative</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Late in taking preventative">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Missed daily preventative</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Missed daily preventative">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Loud noises</span>
+                                    <input class="checkbox" type="checkbox" name="attackTriggers" value="Loud noises">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">*Add trigger*</span>
+                                    <input class="checkbox" type="checkbox" id="checker">
+                                </label>
+                                <input class="input input-bordered" type="text" name="attackTriggers" id="userInput" disabled="disabled" placeholder="Trigger">
+                            </div>
+                            <div class="form-control mt-6">
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="../js/main.js"></script>
     </body>
 </html>

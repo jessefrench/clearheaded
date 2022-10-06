@@ -125,7 +125,7 @@
         - Paracetamol 500mg
         - Topiramate 25mg
         - Ibuprofen 200mg
-        - Sumatriptan 3mg
+        - Sumatriptan 30mg
         - Aimovig 70ml
         - Ubrelvy 50mg
         - Venlafaxine 150mg
@@ -183,7 +183,7 @@
         - Teeth
 
     - Summary
-        - Start / end time + duration
+        - Start / end time & duration
         - Attack type
         - Pain location
         - Medication
@@ -191,7 +191,6 @@
         - Symptoms
         - Location
         - Premonitory symptoms
-        - Weather
         - Potential triggers
         - Refiefs
         - Affected activites

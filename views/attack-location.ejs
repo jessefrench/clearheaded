@@ -5,20 +5,69 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Attack Location</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <h1>Where were you when the headache started?</h1>
-        <form action="/attack/create-attack-location" method="POST">
-            <input type="checkbox" name="attackLocation" value="Home"><span>Home</span>
-            <input type="checkbox" name="attackLocation" value="Work"><span>Work</span>
-            <input type="checkbox" name="attackLocation" value="School"><span>School</span>
-            <input type="checkbox" name="attackLocation" value="In transit / commuting"><span>In transit / commuting</span>
-            <input type="checkbox" name="attackLocation" value="Bed (at home)"><span>Bed (at home)</span>
-            <input type="checkbox" name="attackLocation" value="Out"><span>Out</span>
-            <input type="checkbox" id="checker">
-            <input type="text" name="attackLocation" id="userInput" disabled="disabled" placeholder="Add location">
-            <input type="submit">
-        </form>
+        <div class="hero min-h-screen bg-base-200">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl font-bold">Where were you when the headache started?</h1>
+                </div>
+                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div class="card-body">
+                        <form action="/attack/create-attack-location" method="POST" onsubmit="disableEmptyInputs()">
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Home</span>
+                                    <input class="checkbox" type="checkbox" name="attackLocation" value="Home">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Work</span>
+                                    <input class="checkbox" type="checkbox" name="attackLocation" value="Work">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">School</span>
+                                    <input class="checkbox" type="checkbox" name="attackLocation" value="School">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">In transit / commuting</span>
+                                    <input class="checkbox" type="checkbox" name="attackLocation" value="In transit / commuting">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Bed (at home)</span>
+                                    <input class="checkbox" type="checkbox" name="attackLocation" value="Bed (at home)">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Out</span>
+                                    <input class="checkbox" type="checkbox" name="attackLocation" value="Out">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">*Add location*</span>
+                                    <input class="checkbox" type="checkbox" id="checker">
+                                </label>
+                                <input class="input input-bordered" type="text" name="attackLocation" id="userInput" disabled="disabled" placeholder="Location">
+                            </div>
+                            <div class="form-control mt-6">
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="../js/main.js"></script>
     </body>
 </html>

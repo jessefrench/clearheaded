@@ -5,29 +5,133 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pain Location</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <h1>Where did the pain start?</h1>
-        <form action="/attack/create-pain-location" method="POST">
-            <input type="checkbox" name="painLocation" value="Front-left of head"><span>Front-left of head</span>
-            <input type="checkbox" name="painLocation" value="Front-right of head"><span>Front-right of head</span>
-            <input type="checkbox" name="painLocation" value="Back-left of head"><span>Back-left of head</span>
-            <input type="checkbox" name="painLocation" value="Back-right of head"><span>Back-right of head</span>
-            <input type="checkbox" name="painLocation" value="Left base of skull"><span>Left base of skull</span>
-            <input type="checkbox" name="painLocation" value="Right base of skull"><span>Right base of skull</span>
-            <input type="checkbox" name="painLocation" value="Left side of neck"><span>Left side of neck</span>
-            <input type="checkbox" name="painLocation" value="Right side of neck"><span>Right side of neck</span>
-            <input type="checkbox" name="painLocation" value="Left eye"><span>Left eye</span>
-            <input type="checkbox" name="painLocation" value="Right eye"><span>Right eye</span>
-            <input type="checkbox" name="painLocation" value="Between the eyes"><span>Between the eyes</span>
-            <input type="checkbox" name="painLocation" value="Left ear"><span>Left ear</span>
-            <input type="checkbox" name="painLocation" value="Right ear"><span>Right ear</span>
-            <input type="checkbox" name="painLocation" value="Left cheekbone"><span>Left cheekbone</span>
-            <input type="checkbox" name="painLocation" value="Right cheekbone"><span>Right cheekbone</span>
-            <input type="checkbox" name="painLocation" value="Left jawbone"><span>Left jawbone</span>
-            <input type="checkbox" name="painLocation" value="Right jawbone"><span>Right jawbone</span>
-            <input type="checkbox" name="painLocation" value="Teeth"><span>Teeth</span>
-            <input type="submit">
-        </form>
+        <div class="hero min-h-screen bg-base-200">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl font-bold">Where did the pain start?</h1>
+                </div>
+                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div class="card-body">
+                        <form action="/attack/create-pain-location" method="POST" onsubmit="disableEmptyInputs()">
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Front-left of head</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Front-left of head">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Front-right of head</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Front-right of head">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Back-left of head</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Back-left of head">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Back-right of head</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Back-right of head">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Left base of skull</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Left base of skull">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Right base of skull</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Right base of skull">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Left side of neck</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Left side of neck">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Right side of neck</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Right side of neck">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Left eye</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Left eye">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Right eye</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Right eye">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Between the eyes</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Between the eyes">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Left ear</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Left ear">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Right ear</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Right ear">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Left cheekbone</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Left cheekbone">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Right cheekbone</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Right cheekbone">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Left jawbone</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Left jawbone">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Right jawbone</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Right jawbone">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Teeth</span>
+                                    <input class="checkbox" type="checkbox" name="painLocation" value="Teeth">
+                                </label>
+                            </div>
+                            <div class="form-control mt-6">
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

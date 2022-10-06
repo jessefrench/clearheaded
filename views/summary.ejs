@@ -5,9 +5,99 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Summary</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <h1>Summary</h1>
-        <a href="/todos"><h2>Home</h2></a>
+        <div class="hero min-h-screen bg-base-200">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl font-bold">Summary</h1>
+                </div>
+                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div class="card-body">
+                        <h3 class="text-2xl font-bold">Attack Time</h3>
+                        <ul>
+                            <li><%= date %>: <%= start %> - <%= end %></li>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Attack Type(s)</h3>
+                        <ul>
+                            <% for(let i = 0; i < type.length; i++) {%>
+                                    <li>
+                                        <span><%= type[i] %></span>
+                                    </li>
+                            <% } %>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Pain Level</h3>
+                        <ul>
+                            <li><%= level %></li>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Attack Location</h3>
+                        <ul>
+                            <li><%= attackLoc %></li>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Symptoms</h3>
+                        <ul>
+                            <% for(let i = 0; i < symptoms.length; i++) {%>
+                                    <li>
+                                        <span><%= symptoms[i] %></span>
+                                    </li>
+                            <% } %>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Triggers</h3>
+                        <ul>
+                            <% for(let i = 0; i < triggers.length; i++) {%>
+                                    <li>
+                                        <span><%= triggers[i] %></span>
+                                    </li>
+                            <% } %>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Aura</h3>
+                        <ul>
+                            <% for(let i = 0; i < aura.length; i++) {%>
+                                    <li>
+                                        <span><%= aura[i] %></span>
+                                    </li>
+                            <% } %>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Medication</h3>
+                        <ul>
+                            <% for(let i = 0; i < medication.length; i++) {%>
+                                    <li>
+                                        <span><%= medication[i] %></span>
+                                    </li>
+                            <% } %>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Relief Methods</h3>
+                        <ul>
+                            <% for(let i = 0; i < relief.length; i++) {%>
+                                    <li>
+                                        <span><%= relief[i] %></span>
+                                    </li>
+                            <% } %>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Activities Affected</h3>
+                        <ul>
+                            <% for(let i = 0; i < activities.length; i++) {%>
+                                    <li>
+                                        <span><%= activities[i] %></span>
+                                    </li>
+                            <% } %>
+                        </ul>
+                        <h3 class="text-2xl font-bold">Pain Location</h3>
+                        <ul>
+                            <% for(let i = 0; i < painLoc.length; i++) {%>
+                                    <li>
+                                        <span><%= painLoc[i] %></span>
+                                    </li>
+                            <% } %>
+                        </ul>
+                        <div class="form-control mt-6">
+                            <a href="/todos"><button class="btn btn-primary">Home</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

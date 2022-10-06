@@ -1,4 +1,15 @@
-const Attack = require('../models/Attack')
+const AttackTime = require('../models/AttackTime')
+const AttackType = require('../models/AttackType')
+const PainLevel = require('../models/PainLevel')
+const AttackLocation = require('../models/AttackLocation')
+const Symptoms = require('../models/Symptoms')
+const Triggers = require('../models/Triggers')
+const Aura = require('../models/Aura')
+const Medication = require('../models/Medication')
+const Relief = require('../models/Relief')
+const Activities = require('../models/Activities')
+const PainLocation = require('../models/PainLocation')
+const moment = require('moment')
 
 module.exports = {
     getTime: async (req,res) => {
@@ -11,11 +22,11 @@ module.exports = {
 
     createAttackTime: async (req,res) => {
         try{
-            await Attack.create({
+            await AttackTime.create({
                 date: new Date(req.body.date),
                 startTime: req.body.start,
                 endTime: req.body.end,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Attack time has been added.")
@@ -35,9 +46,9 @@ module.exports = {
 
     createAttackType: async (req,res) => {
         try{
-            const attackType = await Attack.create({
+            await AttackType.create({
                 type: req.body.attackType,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Attack type has been added.")
@@ -57,9 +68,9 @@ module.exports = {
 
     createPainLevel: async (req,res) => {
         try{
-            await Attack.create({
+            await PainLevel.create({
                 level: req.body.painLevel,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Pain level has been added.")
@@ -79,9 +90,9 @@ module.exports = {
 
     createAttackLocation: async (req,res) => {
         try{
-            await Attack.create({
+            await AttackLocation.create({
                 attackLocation: req.body.attackLocation,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Attack location has been added.")
@@ -101,9 +112,9 @@ module.exports = {
 
     createSymptoms: async (req,res) => {
         try{
-            await Attack.create({
+            await Symptoms.create({
                 symptoms: req.body.attackSymptoms,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Symptoms have been added.")
@@ -123,9 +134,9 @@ module.exports = {
 
     createTriggers: async (req,res) => {
         try{
-            await Attack.create({
+            await Triggers.create({
                 triggers: req.body.attackTriggers,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Triggers have been added.")
@@ -145,9 +156,9 @@ module.exports = {
 
     createAura: async (req,res) => {
         try{
-            await Attack.create({
+            await Aura.create({
                 aura: req.body.attackAura,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Auras have been added.")
@@ -167,9 +178,9 @@ module.exports = {
 
     createMedication: async (req,res) => {
         try{
-            await Attack.create({
+            await Medication.create({
                 medication: req.body.attackMedication,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Medication have been added.")
@@ -189,9 +200,9 @@ module.exports = {
 
     createRelief: async (req,res) => {
         try{
-            await Attack.create({
+            await Relief.create({
                 relief: req.body.reliefMethod,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Relief methods have been added.")
@@ -211,12 +222,12 @@ module.exports = {
 
     createActivities: async (req,res) => {
         try{
-            await Attack.create({
+            await Activities.create({
                 activities: req.body.activitiesAffected,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
-            console.log("Activities affected have been added.")
+            console.log("Activities have been added.")
             res.redirect("/attack/pain-location")
         }catch(err){
             console.log(err)
@@ -233,9 +244,9 @@ module.exports = {
 
     createPainLocation: async (req,res) => {
         try{
-            await Attack.create({
+            await PainLocation.create({
                 painLocation: req.body.painLocation,
-                userId: req.user.id,
+                userId: req.user.id, 
                 email: req.user.email
             })
             console.log("Pain location has been added.")
@@ -246,8 +257,36 @@ module.exports = {
     },
 
     getSummary: async (req,res) => {
-        try{ 
-            res.render('summary.ejs', { user: req.user })
+        try{
+            const attackDate = await AttackTime.findOne({userId: req.user.id})
+            const attackStartTime = await AttackTime.findOne({userId: req.user.id})
+            const attackEndTime = await AttackTime.findOne({userId: req.user.id})
+            const attackType = await AttackType.findOne({userId: req.user.id})
+            const painLevel = await PainLevel.findOne({userId: req.user.id})
+            const aLocation = await AttackLocation.findOne({userId: req.user.id})
+            const attackSymptoms = await Symptoms.findOne({userId: req.user.id})
+            const attackTriggers = await Triggers.findOne({userId: req.user.id})
+            const attackAura = await Aura.findOne({userId: req.user.id})
+            const attackMedication = await Medication.findOne({userId: req.user.id})
+            const reliefMethods = await Relief.findOne({userId: req.user.id})
+            const activitiesAffected = await Activities.findOne({userId: req.user.id})
+            const pLocation = await PainLocation.findOne({userId: req.user.id})
+            console.log(attackType.type)
+            res.render('summary.ejs', {
+                date: attackDate.date,
+                start: attackStartTime.startTime,
+                end: attackEndTime.endTime,
+                type: attackType.type,
+                level: painLevel.level,
+                attackLoc: aLocation.attackLocation,
+                symptoms: attackSymptoms.symptoms,
+                triggers: attackTriggers.triggers,
+                aura: attackAura.aura,
+                medication: attackMedication.medication,
+                relief: reliefMethods.relief,
+                activities: activitiesAffected.activities,
+                painLoc: pLocation.painLocation
+            })
         }catch(err){
             console.log(err)
         }

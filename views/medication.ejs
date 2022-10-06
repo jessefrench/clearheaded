@@ -5,27 +5,111 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Medication</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <h1>Did you take any medication?</h1>
-        <form action="/attack/create-medication" method="POST">
-            <input type="checkbox" name="attackMedication" value="No medication"><span>No medication</span>
-            <input type="checkbox" name="attackMedication" value="Nurtec 75mg"><span>Nurtec 75mg</span>
-            <input type="checkbox" name="attackMedication" value="Zomig 5mg"><span>Zomig 5mg</span>
-            <input type="checkbox" name="attackMedication" value="Relpax 20mg"><span>Relpax 20mg</span>
-            <input type="checkbox" name="attackMedication" value="Maxalt 5mg"><span>Maxalt 5mg</span>
-            <input type="checkbox" name="attackMedication" value="Paracetamol 500mg"><span>Paracetamol 500mg</span>
-            <input type="checkbox" name="attackMedication" value="Topiramate 25mg"><span>Topiramate 25mg</span>
-            <input type="checkbox" name="attackMedication" value="Ibuprofen 200mg"><span>Ibuprofen 200mg</span>
-            <input type="checkbox" name="attackMedication" value="Sumatriptan 30mg"><span>Sumatriptan 30mg</span>
-            <input type="checkbox" name="attackMedication" value="Aimovig 70ml"><span>Aimovig 70ml</span>
-            <input type="checkbox" name="attackMedication" value="Ubrelvy 50mg"><span>Ubrelvy 50mg</span>
-            <input type="checkbox" name="attackMedication" value="Venlafaxine 150mg"><span>Venlafaxine 150mg</span>
-            <input type="checkbox" name="attackMedication" value="Sumatriptan 100mg"><span>Sumatriptan 100mg</span>
-            <input type="checkbox" id="checker">
-            <input type="text" name="attackMedication" id="userInput" disabled="disabled" placeholder="Add medication">
-            <input type="submit">
-        </form>
+        <div class="hero min-h-screen bg-base-200">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl font-bold">Did you take any medication?</h1>
+                </div>
+                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div class="card-body">
+                        <form action="/attack/create-medication" method="POST" onsubmit="disableEmptyInputs()">
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">No medication</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="No medication">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Nurtec 75mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Nurtec 75mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Zomig 5mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Zomig 5mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Relpax 20mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Relpax 20mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Maxalt 5mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Maxalt 5mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Paracetamol 500mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Paracetamol 500mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Topiramate 25mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Topiramate 25mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Ibuprofen 200mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Ibuprofen 200mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Sumatriptan 30mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Sumatriptan 30mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Aimovig 70ml</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Aimovig 70ml">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Ubrelvy 50mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Ubrelvy 50mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Venlafaxine 150mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Venlafaxine 150mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Sumatriptan 100mg</span>
+                                    <input class="checkbox" type="checkbox" name="attackMedication" value="Sumatriptan 100mg">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">*Add medication*</span>
+                                    <input class="checkbox" type="checkbox" id="checker">
+                                </label>
+                                <input class="input input-bordered" type="text" name="attackMedication" id="userInput" disabled="disabled" placeholder="Medication">
+                            </div>
+                            <div class="form-control mt-6">
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="../js/main.js"></script>
     </body>
 </html>

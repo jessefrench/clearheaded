@@ -5,26 +5,105 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Activities Affected</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
-        <h1>How did it affect your activities?</h1>
-        <form action="/attack/create-activities" method="POST">
-            <input type="checkbox" name="activitiesAffected" value="Not affected"><span>Not affected</span>
-            <input type="checkbox" name="activitiesAffected" value="Missed work"><span>Missed work</span>
-            <input type="checkbox" name="activitiesAffected" value="Slower (at work)"><span>Slower (at work)</span>
-            <input type="checkbox" name="activitiesAffected" value="Missed school"><span>Missed school</span>
-            <input type="checkbox" name="activitiesAffected" value="Slower (at school)"><span>Slower (at school)</span>
-            <input type="checkbox" name="activitiesAffected" value="Missed social activity"><span>Missed social activity</span>
-            <input type="checkbox" name="activitiesAffected" value="Missed family time"><span>Missed family time</span>
-            <input type="checkbox" name="activitiesAffected" value="Could not fall asleep"><span>Could not fall asleep</span>
-            <input type="checkbox" name="activitiesAffected" value="Woke up during sleep"><span>Woke up during sleep</span>
-            <input type="checkbox" name="activitiesAffected" value="No screen / phone"><span>No screen / phone</span>
-            <input type="checkbox" name="activitiesAffected" value="Hard to concentrate"><span>Hard to concentrate</span>
-            <input type="checkbox" name="activitiesAffected" value="Others"><span>Others</span>
-            <input type="checkbox" id="checker">
-            <input type="text" name="activitiesAffected" id="userInput" disabled="disabled" placeholder="Add activity">
-            <input type="submit">
-        </form>
+        <div class="hero min-h-screen bg-base-200">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl font-bold">How did it affect your activities?</h1>
+                </div>
+                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div class="card-body">
+                        <form action="/attack/create-activities" method="POST" onsubmit="disableEmptyInputs()">
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Not affected</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Not affected">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Missed work</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Missed work">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Slower at work</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Slower at work">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Missed school</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Missed school">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Slower at school</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Slower at school">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Missed social activity</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Missed social activity">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Missed family time</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Missed family time">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Could not fall asleep</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Could not fall asleep">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Woke up during sleep</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Woke up during sleep">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">No screen / phone</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="No screen / phone">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Hard to concentrate</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Hard to concentrate">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">Others</span>
+                                    <input class="checkbox" type="checkbox" name="activitiesAffected" value="Others">
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <span class="label-text">*Add affected activity*</span>
+                                    <input class="checkbox" type="checkbox" id="checker">
+                                </label>
+                                <input class="input input-bordered" type="text" name="reliefMethod" id="userInput" disabled="disabled" placeholder="Activity">
+                            </div>
+                            <div class="form-control mt-6">
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="../js/main.js"></script>
     </body>
 </html>
