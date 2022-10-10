@@ -258,20 +258,19 @@ module.exports = {
 
     getSummary: async (req,res) => {
         try{
-            const attackDate = await AttackTime.findOne({userId: req.user.id})
-            const attackStartTime = await AttackTime.findOne({userId: req.user.id})
-            const attackEndTime = await AttackTime.findOne({userId: req.user.id})
-            const attackType = await AttackType.findOne({userId: req.user.id})
-            const painLevel = await PainLevel.findOne({userId: req.user.id})
-            const aLocation = await AttackLocation.findOne({userId: req.user.id})
-            const attackSymptoms = await Symptoms.findOne({userId: req.user.id})
-            const attackTriggers = await Triggers.findOne({userId: req.user.id})
-            const attackAura = await Aura.findOne({userId: req.user.id})
-            const attackMedication = await Medication.findOne({userId: req.user.id})
-            const reliefMethods = await Relief.findOne({userId: req.user.id})
-            const activitiesAffected = await Activities.findOne({userId: req.user.id})
-            const pLocation = await PainLocation.findOne({userId: req.user.id})
-            console.log(attackType.type)
+            const attackDate = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackStartTime = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackEndTime = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackType = await AttackType.findOne({userId: req.user.id}).sort({_id: -1})
+            const painLevel = await PainLevel.findOne({userId: req.user.id}).sort({_id: -1})
+            const aLocation = await AttackLocation.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackSymptoms = await Symptoms.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackTriggers = await Triggers.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackAura = await Aura.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackMedication = await Medication.findOne({userId: req.user.id}).sort({_id: -1})
+            const reliefMethods = await Relief.findOne({userId: req.user.id}).sort({_id: -1})
+            const activitiesAffected = await Activities.findOne({userId: req.user.id}).sort({_id: -1})
+            const pLocation = await PainLocation.findOne({userId: req.user.id}).sort({_id: -1})
             res.render('summary.ejs', {
                 date: attackDate.date,
                 start: attackStartTime.startTime,
