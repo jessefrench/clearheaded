@@ -4,7 +4,6 @@ const todoComplete = document.querySelectorAll('span.completed')
 const getTask = document.querySelector('.double')
 const todoImportant = document.querySelectorAll('.fa-star')
 const todoNotImportant = document.querySelectorAll('.fa-star.important')
-console.log(getTask)
 
 Array.from(deleteBtn).forEach((el) => {
     el.addEventListener('click', deleteTodo)
@@ -29,7 +28,7 @@ Array.from(todoComplete).forEach((el) => {
 async function deleteTodo(){
     const todoId = this.parentNode.dataset.id
     try {
-        const response = await fetch('../todos/deleteTodo', {
+        const response = await fetch('../home/deleteTodo', {
             method: 'delete',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
@@ -47,7 +46,7 @@ async function deleteTodo(){
 async function markComplete() {
     const todoId = this.parentNode.dataset.id
     try {
-        const response = await fetch('../todos/markComplete', {
+        const response = await fetch('../home/markComplete', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
@@ -65,7 +64,7 @@ async function markComplete() {
 async function markIncomplete() {
     const todoId = this.parentNode.dataset.id
     try {
-        const response = await fetch('../todos/markIncomplete', {
+        const response = await fetch('../home/markIncomplete', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
@@ -83,7 +82,7 @@ async function markIncomplete() {
 async function markImportant() {
     const todoId = this.parentNode.dataset.id
     try {
-        const response = await fetch('../todos/markImportant', {
+        const response = await fetch('../home/markImportant', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
@@ -101,7 +100,7 @@ async function markImportant() {
 async function markNotImportant() {
     const todoId = this.parentNode.dataset.id
     try {
-        const response = await fetch('../todos/markNotImportant', {
+        const response = await fetch('../home/markNotImportant', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({

@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Headache Tracker</title>
+		<link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
         <script src="https://cdn.tailwindcss.com"></script>
@@ -26,7 +27,7 @@
       		    		          		<span class="dateStyle">headache on <%=el.date %></span>
       		    		          	<% } %>
       		    		          	<span class="fa fa-star <%=el.important === true ? 'important' : '' %>" title="Mark important / unimportant"></span>
-      		    		          	<span class="fa fa-check <%= el.completed === true ? 'completed' : 'not' %>" title = "Mark complete / incomplete"></span>
+      		    		          	<span class="fa fa-check <%= el.completed === true ? 'completed' : 'not' %>" title ="Mark complete / incomplete"></span>
       		    		          	<span class='del fa fa-trash delete-btn' title="Delete"></span>
       		    		        </li>
       		    		    </div>
@@ -35,7 +36,7 @@
       		    </div>
       		    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       		        <div class="card-body">
-      		            <form action="/todos/createTodo" method='POST' class="add-task">
+      		            <form action="/home/createTodo" method='POST' class="add-task">
       		                <div class="form-control">
       		                    <label class="label">
       		                    	<span class="label-text">Quick-add headache</span>
@@ -52,7 +53,7 @@
       		                	<input type="submit" class="btn btn-primary" value="Add"></input>
       		                </div>
       		            </form>
-      		            <form action="/todos/getTask" method="POST">
+      		            <form action="/home/getTask" method="POST">
       		                <div class="form-control">
       		                	<label class="label">
       		                		<span class="label-text">Find headaches from a specific date</span>
@@ -69,6 +70,6 @@
       		</div>
 		</div>
       	<script src="../js/main.js"></script>
-      	<script src="../js/drag.js"></script>
+		<script src="../js/drag.js"></script>
     </body>
 </html>

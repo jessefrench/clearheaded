@@ -8,10 +8,8 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const todoRoutes = require('./routes/todos')
+const homeRoutes = require('./routes/home')
 const attackRoutes = require('./routes/attack')
-const cron = require('node-cron')
-const Todo = require('./models/Todo')
 
 // Use .env file in config folder
 require('dotenv').config({path: './config/.env'})
@@ -54,10 +52,10 @@ app.use(flash())
  
 // Setup routes for which the server is listening
 app.use('/', mainRoutes)
-app.use('/todos', todoRoutes)
+app.use('/home', homeRoutes)
 app.use('/attack', attackRoutes)
  
 // Server running
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running. Listening on port ${process.env.PORT}.`)
-})    
+})
