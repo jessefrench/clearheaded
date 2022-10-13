@@ -9,18 +9,17 @@ const Medication = require('../models/Medication')
 const Relief = require('../models/Relief')
 const Activities = require('../models/Activities')
 const PainLocation = require('../models/PainLocation')
-const Todo = require('../models/Todo')
 const moment = require('moment')
 
 module.exports = {
-    getTime: async (req,res) => {
+    getTime: async (req, res) => {
         try{ 
             res.render('attack-time.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createAttackTime: async (req,res) => {
+    createAttackTime: async (req, res) => {
         try{
             await AttackTime.create({
                 date: new Date(req.body.date),
@@ -35,28 +34,14 @@ module.exports = {
             console.log(err)
         }
     },
-    // this doesn't work yet, check back later :)
-    // getQuickAddAttack: async (req,res) => {
-    //     try{
-    //         const quickAttackDate = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1})
-    //         const quickAttackType = await AttackType.findOne({userId: req.user.id}).sort({_id: -1})
-    //         res.render("home.ejs", {
-    //             date: quickAttackDate.date,
-    //             type: quickAttackType.type,
-    //             user: req.user
-    //         })
-    //     }catch(err){
-    //         console.log(err)
-    //     }
-    // },
-    getType: async (req,res) => {
+    getType: async (req, res) => {
         try{ 
             res.render('attack-type.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createAttackType: async (req,res) => {
+    createAttackType: async (req, res) => {
         try{
             await AttackType.create({
                 type: req.body.attackType,
@@ -69,14 +54,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getPainLevel: async (req,res) => {
+    getPainLevel: async (req, res) => {
         try{ 
             res.render('pain-level.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createPainLevel: async (req,res) => {
+    createPainLevel: async (req,  res) => {
         try{
             await PainLevel.create({
                 level: req.body.painLevel,
@@ -89,14 +74,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getLocation: async (req,res) => {
+    getLocation: async (req, res) => {
         try{ 
             res.render('attack-location.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createAttackLocation: async (req,res) => {
+    createAttackLocation: async (req, res) => {
         try{
             await AttackLocation.create({
                 attackLocation: req.body.attackLocation,
@@ -109,14 +94,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getSymptoms: async (req,res) => {
+    getSymptoms: async (req, res) => {
         try{ 
             res.render('symptoms.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createSymptoms: async (req,res) => {
+    createSymptoms: async (req, res) => {
         try{
             await Symptoms.create({
                 symptoms: req.body.attackSymptoms,
@@ -129,14 +114,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getTriggers: async (req,res) => {
+    getTriggers: async (req, res) => {
         try{ 
             res.render('triggers.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createTriggers: async (req,res) => {
+    createTriggers: async (req, res) => {
         try{
             await Triggers.create({
                 triggers: req.body.attackTriggers,
@@ -149,14 +134,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getAura: async (req,res) => {
+    getAura: async (req, res) => {
         try{ 
             res.render('aura.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createAura: async (req,res) => {
+    createAura: async (req, res) => {
         try{
             await Aura.create({
                 aura: req.body.attackAura,
@@ -169,14 +154,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getMedication: async (req,res) => {
+    getMedication: async (req, res) => {
         try{ 
             res.render('medication.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createMedication: async (req,res) => {
+    createMedication: async (req, res) => {
         try{
             await Medication.create({
                 medication: req.body.attackMedication,
@@ -189,14 +174,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getRelief: async (req,res) => {
+    getRelief: async (req, res) => {
         try{ 
             res.render('relief.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createRelief: async (req,res) => {
+    createRelief: async (req, res) => {
         try{
             await Relief.create({
                 relief: req.body.reliefMethod,
@@ -209,14 +194,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getActivities: async (req,res) => {
+    getActivities: async (req, res) => {
         try{ 
             res.render('activities.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createActivities: async (req,res) => {
+    createActivities: async (req, res) => {
         try{
             await Activities.create({
                 activities: req.body.activitiesAffected,
@@ -229,14 +214,14 @@ module.exports = {
             console.log(err)
         }
     },
-    getPainLocation: async (req,res) => {
+    getPainLocation: async (req, res) => {
         try{ 
             res.render('pain-location.ejs', { user: req.user })
         }catch(err){
             console.log(err)
         }
     },
-    createPainLocation: async (req,res) => {
+    createPainLocation: async (req, res) => {
         try{
             await PainLocation.create({
                 painLocation: req.body.painLocation,
@@ -249,7 +234,7 @@ module.exports = {
             console.log(err)
         }
     },
-    getSummary: async (req,res) => {
+    getSummary: async (req, res) => {
         try{
             const attackDate = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1})
             const attackStartTime = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1})

@@ -14,6 +14,12 @@
 
 .fa-star {
   margin-left: auto;
+  margin-right: 10px;
+}
+
+.fa-circle-exclamation {
+  margin-left: auto;
+  margin-right: 10px;
 }
 
 .fa-check {
@@ -27,7 +33,7 @@
 }
 
 .important {
-  color: yellow;
+  color: red;
 }
  
 .draggable.dragging {

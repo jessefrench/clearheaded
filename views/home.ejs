@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Headache Tracker</title>
 		<link rel="stylesheet" href="../css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
@@ -19,19 +19,30 @@
       		    	<a href="/attack"><button class="btn btn-primary">Record attack</button></a>
       		    	<br><br>
       		    	<ul class="task-list">
-      		    		<% todos.forEach( el=> { %>
+      		    		<% todos.forEach(el => { %>
       		    		    <div class="container" >
-      		    		        <li class="todoItem task-list-item draggable" draggable="true" data-id='<%=el._id%>'>
+      		    		        <li class="todoItem task-list-item draggable" draggable="true" data-id='<%= el._id %>'>
       		    		          	<span class="<%= el.completed === true ? 'completed' : 'not' %>"><%= el.todo %></span>
-      		    		          	<% if(el.date !="Invalid Date" ){ %>
-      		    		          		<span class="dateStyle">headache on <%=el.date %></span>
+      		    		          	<% if(el.date != "Invalid Date" ){ %>
+      		    		          		<span class="dateStyle">headache on <%= el.date %></span>
       		    		          	<% } %>
-      		    		          	<span class="fa fa-star <%=el.important === true ? 'important' : '' %>" title="Mark important / unimportant"></span>
-      		    		          	<span class="fa fa-check <%= el.completed === true ? 'completed' : 'not' %>" title ="Mark complete / incomplete"></span>
+      		    		          	<span class="fa-solid fa-circle-exclamation <%=el.important === true ? 'important' : '' %>" title="Mark important / unimportant"></span>
       		    		          	<span class='del fa fa-trash delete-btn' title="Delete"></span>
       		    		        </li>
       		    		    </div>
       		    		<% }) %>
+						<!-- <% recType.forEach(el => { %>
+							<div class="container" >
+								<li class="todoItem task-list-item draggable" draggable="true" data-id='<%= el._id %>'>
+									<span class="<%= el.completed === true ? 'completed' : 'not' %>"><%= recType %></span>
+									<% if(el.date != "Invalid Date" ){ %>
+										<span class="dateStyle">headache on <%= recDate %></span>
+									<% } %>
+									<span class="fa-solid fa-circle-exclamation <%=el.important === true ? 'important' : '' %>" title="Mark important / unimportant"></span>
+									<span class='del fa fa-trash delete-btn' title="Delete"></span>
+								</li>
+							</div>
+						<% }) %> -->
       		    	</ul>
       		    </div>
       		    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
