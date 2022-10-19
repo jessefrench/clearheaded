@@ -18,7 +18,7 @@ This is a full-stack application built with MVC architecture and authentication.
 * Users can rearrange tracked headaches with drag and drop functionality
 
 ## Packages / dependencies
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
+bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, tailwindcss + daisyui
 
 ## App in action
 ![homePage](https://user-images.githubusercontent.com/106822556/195879474-a319b870-8e36-44e8-aaf3-4d40cd1b47ab.gif)
