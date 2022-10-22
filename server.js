@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const path = require('path')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -24,7 +25,7 @@ connectDB()
 app.set('view engine', 'ejs')
 
 // Static folder
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Body parsing
 app.use(express.urlencoded({ extended: true }))
