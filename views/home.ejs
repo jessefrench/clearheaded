@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="night">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Headache Tracker</title>
+        <title>Clearheaded</title>
 		<link href="../css/output.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     </head>
@@ -14,8 +14,14 @@
       		    <div class="text-center lg:text-left">
       		    	<h1 class="text-5xl font-bold"><%= user.userName %>, you've had <%= left %> headaches so far.</h1>
       		    	<p class="py-6">Record an attack or quickly add a headache to track.</p>
-      		    	<a href="/attack"><button class="btn btn-primary">Record attack</button></a>
-      		    	<br><br>
+      		    	<div class="flex w-full">
+						<div class="h-20 flex-grow place-items-center">
+							<a href="/attack"><button class="btn btn-primary">Record attack</button></a>
+						</div>
+						<div class="h-20">
+							<img src="/images/handy-machine-learning.gif" height="100" width="100">
+						</div>
+					</div>
       		    	<ul class="task-list">
       		    		<% todos.forEach(el => { %>
       		    		    <div class="container" >
@@ -59,7 +65,7 @@
       		                	<input type="date" name="toDoDate" class="input-date input input-bordered" />
       		                </div>
       		                <div class="form-control mt-6">
-      		                	<input type="submit" class="btn btn-primary" value="Add"></input>
+      		                	<input type="submit" class="btn btn-primary btn-outline" value="Add"></input>
       		                </div>
       		            </form>
       		            <form action="/home/getTask" method="POST">
@@ -70,7 +76,7 @@
       		                	<input type="date" name="findTask" class="double input input-bordered" />
       		                </div>
       		                <div class="form-control mt-6">
-      		                	<input type="submit" class="btn btn-primary" value="Find"></input>
+      		                	<input type="submit" class="btn btn-primary btn-outline" value="Find"></input>
       		                </div>
       		            </form>
       		            <div class="logout"><a href="/logout">Log out</a></div>
