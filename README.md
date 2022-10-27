@@ -21,8 +21,11 @@ This is a full-stack application built with MVC architecture and authentication.
 bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, tailwindcss + daisyui
 
 ## App in action
-![homePage](https://user-images.githubusercontent.com/106822556/195879474-a319b870-8e36-44e8-aaf3-4d40cd1b47ab.gif)
-![recordAttack](https://user-images.githubusercontent.com/106822556/195883822-63c70787-12d9-4ba6-9765-042519e75e7d.gif)
+![splashPage](https://user-images.githubusercontent.com/106822556/197843479-a0ce536e-5c93-4f23-8086-86df48ab3f80.gif)
+![signup](https://user-images.githubusercontent.com/106822556/197843507-6f0370b7-7990-499e-a10b-85bd5b3fdbaf.png)
+![login](https://user-images.githubusercontent.com/106822556/197843523-d0f85778-f406-46ba-b35b-665934319b1f.png)
+![homePage](https://user-images.githubusercontent.com/106822556/197908836-a2903917-7791-41e9-a834-3425a151f683.gif)
+![recordAttack](https://user-images.githubusercontent.com/106822556/197914014-f9634cf1-1957-4950-8010-8706815cc6d3.gif)
 
 ## Optimizations
 As of right now, when recording a full attack, the headache doesn't show up on the home screen automatically, so you have to add it manually if you want to track it. I will add this feature soon! I also want to include an archive where users can pull up past records of thier attack summaries. 
