@@ -11,6 +11,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const homeRoutes = require('./routes/home')
 const attackRoutes = require('./routes/attack')
+const PORT = 10000
 
 // Use .env file in config folder
 require('dotenv').config({path: './config/.env'})
@@ -57,6 +58,6 @@ app.use('/home', homeRoutes)
 app.use('/attack', attackRoutes)
  
 // Server running
-app.listen(process.env.PORT, ()=>{
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running. Listening on port ${process.env.PORT}.`)
 })
