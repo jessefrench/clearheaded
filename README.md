@@ -1,7 +1,7 @@
 # About the project
 As someone who has lived with migraines and chronic headaches their entire life, I wanted to build something that could help other people dealing with these issues. Headaches are extremely varied in type and difficult to pinpoint, so often times this leaves people frustrated and confused about the pain they are experiencing. My goal with this app is that it helps people better understand their headaches so they can get the proper care they deserve.
 
-Live link: https://clearheaded.fly.dev
+Live link: https://clearheaded.cyclic.app
 
 ![splashPage](https://user-images.githubusercontent.com/106822556/197843479-a0ce536e-5c93-4f23-8086-86df48ab3f80.gif)
 
