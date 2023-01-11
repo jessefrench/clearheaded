@@ -13,9 +13,7 @@ module.exports = {
             res.render('home.ejs', {
                 todos: todoItems,
                 left: itemsLeft,
-                user: req.user,
-                recType: recordedAttackType.type,
-                recDate: recordedAttackDate.date
+                user: req.user
             })
         }catch(err){
             console.log(err)
