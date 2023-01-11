@@ -1,6 +1,10 @@
 # About the project
 As someone who has lived with migraines and chronic headaches their entire life, I wanted to build something that could help other people dealing with these issues. Headaches are extremely varied in type and difficult to pinpoint, so often times this leaves people frustrated and confused about the pain they are experiencing. My goal with this app is that it helps people better understand their headaches so they can get the proper care they deserve.
 
+Live link: https://clearheaded.fly.dev
+
+![splashPage](https://user-images.githubusercontent.com/106822556/197843479-a0ce536e-5c93-4f23-8086-86df48ab3f80.gif)
+
 ## How it's made
 This is a full-stack application built with MVC architecture and authentication.
 * [![MongoDB][MongoDB]][MongoDB-url]
@@ -17,15 +21,12 @@ This is a full-stack application built with MVC architecture and authentication.
 * Users can delete tracked headaches by selecting the trash can symbol
 * Users can rearrange tracked headaches with drag and drop functionality
 
-## Packages / dependencies
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, tailwindcss + daisyui
-
 ## App in action
-![splashPage](https://user-images.githubusercontent.com/106822556/197843479-a0ce536e-5c93-4f23-8086-86df48ab3f80.gif)
-![signup](https://user-images.githubusercontent.com/106822556/197843507-6f0370b7-7990-499e-a10b-85bd5b3fdbaf.png)
-![login](https://user-images.githubusercontent.com/106822556/197843523-d0f85778-f406-46ba-b35b-665934319b1f.png)
 ![homePage](https://user-images.githubusercontent.com/106822556/197908836-a2903917-7791-41e9-a834-3425a151f683.gif)
 ![recordAttack](https://user-images.githubusercontent.com/106822556/197914014-f9634cf1-1957-4950-8010-8706815cc6d3.gif)
+
+## Packages / dependencies
+bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator, tailwindcss + daisyui
 
 ## Optimizations
 As of right now, when recording a full attack, the headache doesn't show up on the home screen automatically, so you have to add it manually if you want to track it. I will add this feature soon! I also want to include an archive where users can pull up past records of thier attack summaries. 
