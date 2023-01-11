@@ -58,6 +58,8 @@ app.use('/home', homeRoutes)
 app.use('/attack', attackRoutes)
  
 // Server running
-app.listen(port, () => {
-    console.log(`Server is running. Listening on port ${port}.`)
+connectDB().then(() => {
+    app.listen(port, () => {
+      console.log(`Server is running. Listening on port ${port}.`)
+    })
 })
