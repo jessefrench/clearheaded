@@ -7,10 +7,10 @@ Live link: https://clearheaded.cyclic.app
 
 ## How it's made
 This is a full-stack application built with MVC architecture and authentication.
-* [![MongoDB][MongoDB]][MongoDB-url]
+* [![Node][Node.js]][Node-url]
 * [![Express][Express.js]][Express-url]
 * [![EJS][EJS]][EJS-url]
-* [![Node][Node.js]][Node-url]
+* [![MongoDB][MongoDB]][MongoDB-url]
 
 ## Features
 * Login with an email account to view your home page with a personalised greeting
