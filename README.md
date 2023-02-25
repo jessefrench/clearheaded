@@ -6,7 +6,7 @@ Live link: https://clearheaded.cyclic.app
 ![splashPage](https://user-images.githubusercontent.com/106822556/197843479-a0ce536e-5c93-4f23-8086-86df48ab3f80.gif)
 
 ## How it's made
-This is a full-stack application built with MVC architecture and authentication.
+This is a full-stack application built with MVC architecture and local authentication.
 * [![Node][Node.js]][Node-url]
 * [![Express][Express.js]][Express-url]
 * [![EJS][EJS]][EJS-url]
@@ -22,7 +22,12 @@ This is a full-stack application built with MVC architecture and authentication.
 * Rearrange tracked headaches with drag and drop functionality
 
 ## App in action
+Tracking headaches on the home page
+
 ![homePage](https://user-images.githubusercontent.com/106822556/197908836-a2903917-7791-41e9-a834-3425a151f683.gif)
+
+Recording an attack
+
 ![recordAttack](https://user-images.githubusercontent.com/106822556/197914014-f9634cf1-1957-4950-8010-8706815cc6d3.gif)
 
 ## Packages / dependencies
