@@ -63,8 +63,6 @@ module.exports = {
     deleteTodo: async (req, res) => {
         try{
             const deleteQuickAdd = await Todo.findOneAndDelete({_id: req.body.todoIdFromJSFile})
-            // const deleteRecAttackDate = await AttackTime.findOneAndDelete({_id: req.body.recTypeIdFromJSFile})
-            // const deleteRecAttackType = await AttackType.findOneAndDelete({_id: req.body.recTypeIdFromJSFile})
             console.log('Headache deleted.')
             res.json('Headache deleted.')
         }catch(err){

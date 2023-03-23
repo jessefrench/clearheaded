@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
   password: String,
 })
 
-// Password hash middleware
+// password hash middleware
  UserSchema.pre('save', function save(next) {
   const user = this
   if (!user.isModified('password')) { return next() }
@@ -21,13 +21,13 @@ const UserSchema = new mongoose.Schema({
   })
 })
 
-// Helper method for validating user's password
+// helper method for validating user's password
 UserSchema.methods.comparePassword = function(candidatePassword) {
   const currentPassword = this.password
   return new Promise((resolve, reject) => {
     bcrypt.compare(candidatePassword, currentPassword, function(err, isMatch) {
-        if (err) return reject(err)
-        resolve(isMatch)
+      if (err) return reject(err)
+      resolve(isMatch)
     })
   })
 }
