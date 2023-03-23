@@ -22,9 +22,13 @@ const UserSchema = new mongoose.Schema({
 })
 
 // Helper method for validating user's password
-UserSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-    cb(err, isMatch)
+UserSchema.methods.comparePassword = function(candidatePassword) {
+  const currentPassword = this.password
+  return new Promise((resolve, reject) => {
+    bcrypt.compare(candidatePassword, currentPassword, function(err, isMatch) {
+        if (err) return reject(err)
+        resolve(isMatch)
+    })
   })
 }
 
