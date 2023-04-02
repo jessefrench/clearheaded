@@ -19,7 +19,6 @@ export default function Main(props){
         <body>
           {props.children}
           <script src="../js/main.js"></script>
-          <script src="../js/drag.js"></script>
         </body>
       </html>
     </>

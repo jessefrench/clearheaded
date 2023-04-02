@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const moment = require('moment')
 
 const AttackTypeSchema = new mongoose.Schema({
     userId: {

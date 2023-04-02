@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const moment = require('moment')
 
 const PainLocationSchema = new mongoose.Schema({
     userId: {

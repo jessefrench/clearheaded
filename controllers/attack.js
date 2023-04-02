@@ -9,7 +9,6 @@ const Medication = require('../models/Medication')
 const Relief = require('../models/Relief')
 const Activities = require('../models/Activities')
 const PainLocation = require('../models/PainLocation')
-const moment = require('moment')
 
 module.exports = {
     getTime: async (req, res) => {

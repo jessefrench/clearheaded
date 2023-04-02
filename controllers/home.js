@@ -42,24 +42,6 @@ module.exports = {
             console.log(err)
         }
     },
-    markComplete: async (req, res) => {
-        try{
-            await Headache.findOneAndUpdate({_id: req.body.headacheIdFromJSFile}, {completed: true})
-            console.log('Marked complete.')
-            res.json('Marked complete.')
-        }catch(err){
-            console.log(err)
-        }
-    },
-    markIncomplete: async (req, res) => {
-        try{
-            await Headache.findOneAndUpdate({_id: req.body.headacheIdFromJSFile}, {completed: false})
-            console.log('Marked incomplete.')
-            res.json('Marked incomplete.')
-        }catch(err){
-            console.log(err)
-        }
-    },
     deleteHeadache: async (req, res) => {
         try{
             const deleteQuickAdd = await Headache.findOneAndDelete({_id: req.body.headacheIdFromJSFile})
