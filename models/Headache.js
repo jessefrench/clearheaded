@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const moment = require('moment')
 
-const TodoSchema = new mongoose.Schema({
-  todo: {
+const HeadacheSchema = new mongoose.Schema({
+  headache: {
     type: String,
     required: true,
   },
@@ -30,4 +30,4 @@ const TodoSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Headache', HeadacheSchema)

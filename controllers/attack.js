@@ -14,7 +14,7 @@ const moment = require('moment')
 module.exports = {
     getTime: async (req, res) => {
         try{ 
-            res.render('attack-time.ejs', { user: req.user })
+            res.render('attack-time', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -36,7 +36,7 @@ module.exports = {
     },
     getType: async (req, res) => {
         try{ 
-            res.render('attack-type.ejs', { user: req.user })
+            res.render('attack-type', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -56,7 +56,7 @@ module.exports = {
     },
     getPainLevel: async (req, res) => {
         try{ 
-            res.render('pain-level.ejs', { user: req.user })
+            res.render('pain-level', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -76,7 +76,7 @@ module.exports = {
     },
     getLocation: async (req, res) => {
         try{ 
-            res.render('attack-location.ejs', { user: req.user })
+            res.render('attack-location', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -96,7 +96,7 @@ module.exports = {
     },
     getSymptoms: async (req, res) => {
         try{ 
-            res.render('symptoms.ejs', { user: req.user })
+            res.render('symptoms', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -116,7 +116,7 @@ module.exports = {
     },
     getTriggers: async (req, res) => {
         try{ 
-            res.render('triggers.ejs', { user: req.user })
+            res.render('triggers', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -136,7 +136,7 @@ module.exports = {
     },
     getAura: async (req, res) => {
         try{ 
-            res.render('aura.ejs', { user: req.user })
+            res.render('aura', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -156,7 +156,7 @@ module.exports = {
     },
     getMedication: async (req, res) => {
         try{ 
-            res.render('medication.ejs', { user: req.user })
+            res.render('medication', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -176,7 +176,7 @@ module.exports = {
     },
     getRelief: async (req, res) => {
         try{ 
-            res.render('relief.ejs', { user: req.user })
+            res.render('relief', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -196,7 +196,7 @@ module.exports = {
     },
     getActivities: async (req, res) => {
         try{ 
-            res.render('activities.ejs', { user: req.user })
+            res.render('activities', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -216,7 +216,7 @@ module.exports = {
     },
     getPainLocation: async (req, res) => {
         try{ 
-            res.render('pain-location.ejs', { user: req.user })
+            res.render('pain-location', { user: req.user })
         }catch(err){
             console.log(err)
         }
@@ -249,7 +249,7 @@ module.exports = {
             const reliefMethods = await Relief.findOne({userId: req.user.id}).sort({_id: -1})
             const activitiesAffected = await Activities.findOne({userId: req.user.id}).sort({_id: -1})
             const pLocation = await PainLocation.findOne({userId: req.user.id}).sort({_id: -1})
-            res.render('summary.ejs', {
+            res.render('summary', {
                 date: attackDate.date,
                 start: attackStartTime.startTime,
                 end: attackEndTime.endTime,

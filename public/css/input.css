@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.completed {
-  text-decoration: line-through;
-  color: gray;
+.i-btn {
+  margin-right: 10px;
 }
 
 .task-list-item {

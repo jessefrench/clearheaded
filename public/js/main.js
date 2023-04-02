@@ -1,29 +1,29 @@
 const deleteBtn = document.querySelectorAll('.del')
 const getTask = document.querySelector('.double')
-const todoImportant = document.querySelectorAll('.fa-circle-exclamation')
-const todoNotImportant = document.querySelectorAll('.fa-circle-exclamation.important')
+const headacheImportant = document.querySelectorAll('.fa-circle-exclamation')
+const headacheNotImportant = document.querySelectorAll('.fa-circle-exclamation.important')
 
 Array.from(deleteBtn).forEach((el) => {
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', deleteHeadache)
 })
 
-Array.from(todoImportant).forEach((el) => {
+Array.from(headacheImportant).forEach((el) => {
     el.addEventListener('click', markImportant)
 })
 
-Array.from(todoNotImportant).forEach((el) => {
+Array.from(headacheNotImportant).forEach((el) => {
     el.addEventListener('click', markNotImportant)
 })
 
-async function deleteTodo(){
-    const todoId = this.parentNode.dataset.id
+async function deleteHeadache(){
+    const headacheId = this.parentNode.dataset.id
     const recTypeId = this.parentNode.dataset.id
     try {
-        const response = await fetch('../home/deleteTodo', {
+        const response = await fetch('../home/deleteHeadache', {
             method: 'delete',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId,
+                'headacheIdFromJSFile': headacheId,
                 'recTypeIdFromJSFile': recTypeId
             })
         })
@@ -36,13 +36,13 @@ async function deleteTodo(){
 }
 
 async function markImportant() {
-    const todoId = this.parentNode.dataset.id
+    const headacheId = this.parentNode.dataset.id
     try {
         const response = await fetch('../home/markImportant', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'headacheIdFromJSFile': headacheId
             })
         })
         const data = await response.json()
@@ -54,13 +54,13 @@ async function markImportant() {
 }
 
 async function markNotImportant() {
-    const todoId = this.parentNode.dataset.id
+    const headacheId = this.parentNode.dataset.id
     try {
         const response = await fetch('../home/markNotImportant', {
             method: 'put',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
-                'todoIdFromJSFile': todoId
+                'headacheIdFromJSFile': headacheId
             })
         })
         const data = await response.json()

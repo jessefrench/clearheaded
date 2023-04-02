@@ -22,8 +22,9 @@ require('./config/passport')(passport)
 // connect to database
 connectDB()
 
-// use ejs for views
-app.set('view engine', 'ejs')
+// use jsx for views
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
 
 // static folder
 app.use(express.static(path.join(__dirname, 'public')))

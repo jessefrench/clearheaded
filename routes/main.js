@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const authController = require('../controllers/auth') 
-const splashController = require('../controllers/splash')
+const indexController = require('../controllers/index')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
-router.get('/', splashController.getIndex)
+router.get('/', indexController.getIndex)
 router.get('/login', authController.getLogin)
 router.post('/login', authController.postLogin)
 router.get('/logout', authController.logout)
