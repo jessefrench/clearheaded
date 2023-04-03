@@ -1,9 +1,21 @@
 const Headache = require('../models/Headache')
 const AttackTime = require('../models/AttackTime')
 const AttackType = require('../models/AttackType')
+const Summary = require('../models/Summary')
 const moment = require('moment')
 
 module.exports = {
+    // getSummaryData: async (req, res) => {
+    //     try{
+    //         const summary = await Summary.findOne({userId: req.user.id}).sort({_id: -1})
+    //         console.log(summary)
+    //         res.render('home', {
+    //             summary: summary
+    //         })
+    //     }catch(err){
+    //         console.log(err)
+    //     }
+    // },
     getHeadaches: async (req, res) => {
         try{
             const headacheItems = await Headache.find({userId: req.user.id}).sort({completed: 1}).sort({date: 1})

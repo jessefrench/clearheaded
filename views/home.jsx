@@ -4,9 +4,13 @@ import Main from './components/Main'
 export default function Home(props){
   return (
     <Main>
+
+      {/* CONTAINER */}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className=" lg:text-left">
+
+            {/* GREETING */}
             <h1 className="text-5xl font-bold">
               {props.user.userName}, you've had {props.left} headache{props.left === 1 ? '' : 's'} so far.
             </h1>
@@ -15,6 +19,8 @@ export default function Home(props){
               <div className="h-20 flex-grow place-items-center">
                 <a href="/attack"><button className="btn btn-primary">Record attack</button></a>
               </div>
+
+              {/* RENDER GIF */}
               {props.headaches ?
                 props.headaches.map((el, i) =>
                 <div key={i} className="h-20">
@@ -23,6 +29,8 @@ export default function Home(props){
                 ) : null
               }
             </div>
+
+            {/* HEADACHE LIST */}
             <ul className="task-list">
               {props.headaches.map((el, i) => (
                 <div className="container" key={i}>
@@ -41,6 +49,8 @@ export default function Home(props){
               ))}
             </ul>
           </div>
+
+          {/* INPUT FORM */}
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
               <form action="/home/createHeadache" method='POST' className="add-task">

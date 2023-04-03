@@ -11,7 +11,7 @@ export default function Summary(props){
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
-              <form action="/home" method="GET">
+              <form action="/attack/create-summary" method="POST">
                 <h3 className="text-3xl font-bold">Attack Time</h3>
                 <ul className="list-disc list-inside">
                   <li>

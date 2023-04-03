@@ -9,6 +9,7 @@ const Medication = require('../models/Medication')
 const Relief = require('../models/Relief')
 const Activities = require('../models/Activities')
 const PainLocation = require('../models/PainLocation')
+const Summary = require('../models/Summary')
 
 module.exports = {
     getTime: async (req, res) => {
@@ -263,6 +264,45 @@ module.exports = {
                 activities: activitiesAffected.activities,
                 painLoc: pLocation.painLocation
             })
+        }catch(err){
+            console.log(err)
+        }
+    },
+    createSummary: async (req, res) => {
+        try{
+            const attackDate = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackStartTime = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1}).select('startTime')
+            const attackEndTime = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1}).select('endTime')
+            const attackType = await AttackType.findOne({userId: req.user.id}).sort({_id: -1})
+            const painLevel = await PainLevel.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackLocation = await AttackLocation.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackSymptoms = await Symptoms.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackTriggers = await Triggers.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackAura = await Aura.findOne({userId: req.user.id}).sort({_id: -1})
+            const attackMedication = await Medication.findOne({userId: req.user.id}).sort({_id: -1})
+            const reliefMethods = await Relief.findOne({userId: req.user.id}).sort({_id: -1})
+            const activitiesAffected = await Activities.findOne({userId: req.user.id}).sort({_id: -1})
+            const painLocation = await PainLocation.findOne({userId: req.user.id}).sort({_id: -1})
+
+            await Summary.create({
+                date: attackDate.date,
+                startTime: attackStartTime.startTime,
+                endTime: attackEndTime.endTime,
+                type: attackType.type,
+                level: painLevel.level,
+                attackLocation: attackLocation.attackLocation,
+                symptoms: attackSymptoms.symptoms,
+                triggers: attackTriggers.triggers,
+                aura: attackAura.aura,
+                medication: attackMedication.medication,
+                relief: reliefMethods.relief,
+                activities: activitiesAffected.activities,
+                painLocation: painLocation.painLocation
+            })
+
+            console.log("Summary has been added.")
+            res.redirect("/home")
+
         }catch(err){
             console.log(err)
         }

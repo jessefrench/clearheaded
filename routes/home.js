@@ -9,5 +9,6 @@ router.post('/createHeadache', homeController.createHeadache)
 router.delete('/deleteHeadache', homeController.deleteHeadache)
 router.put('/markImportant', homeController.markImportant)
 router.put('/markNotImportant', homeController.markNotImportant)
+// router.get('/getSummaryData', homeController.getSummaryData)
 
 module.exports = router

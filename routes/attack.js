@@ -26,5 +26,6 @@ router.post('/create-activities', attackController.createActivities)
 router.get('/pain-location', ensureAuth, attackController.getPainLocation)
 router.post('/create-pain-location', attackController.createPainLocation)
 router.get('/summary', ensureAuth, attackController.getSummary)
+router.post('/create-summary', attackController.createSummary)
 
 module.exports = router
