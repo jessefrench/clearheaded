@@ -4,6 +4,39 @@ const headacheImportant = document.querySelectorAll('.fa-circle-exclamation')
 const headacheNotImportant = document.querySelectorAll('.fa-circle-exclamation.important')
 const draggables = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
+// const getSummaryDate = document.querySelectorAll('.summary-link')
+
+// Array.from(getSummaryDate).forEach((el) => {
+//     el.addEventListener('click', handleClick)
+// })
+
+// async function handleClick(event) {
+//     event.preventDefault()
+//     const headacheId = event.target.id
+//     try {
+//       const response = await fetch(`/summaries/${headacheId}`)
+//       const headache = await response.json()
+//       const summaryElement = document.getElementById('summaryList')
+//       summaryElement.innerHTML = `
+//         <ul key={id} id="summaryList" className="list-none">
+//             <li> <strong>Attack time:</strong> {headache.date} {headache.startTime}-{headache.endTime} </li>
+//             <li> <strong>Attack type:</strong> {headache.type.join(', ').toLowerCase()} </li>
+//             <li> <strong>Pain level:</strong> {headache.level} </li>
+//             <li> <strong>Attack location:</strong> {headache.attackLocation.toLowerCase()} </li>
+//             <li> <strong>Symptoms:</strong> {headache.symptoms.join(', ').toLowerCase()} </li>
+//             <li> <strong>Triggers:</strong> {headache.triggers.join(', ').toLowerCase()} </li>
+//             <li> <strong>Aura:</strong> {headache.aura.join(', ').toLowerCase()} </li>
+//             <li> <strong>Medication:</strong> {headache.medication.join(', ')} </li>
+//             <li> <strong>Relief methods:</strong> {headache.relief.join(', ').toLowerCase()} </li>
+//             <li> <strong>Activities affected:</strong> {headache.activities.join(', ').toLowerCase()} </li>
+//             <li> <strong>Pain location:</strong> {headache.painLocation.join(', ').toLowerCase()} </li>
+//         </ul>
+//       `
+//       document.getElementById('summaryList').appendChild(summaryElement)
+//     } catch (err) {
+//       console.error(err)
+//     }
+// }
 
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {

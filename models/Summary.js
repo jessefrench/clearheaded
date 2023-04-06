@@ -14,15 +14,17 @@ const SummarySchema = new mongoose.Schema({
         type: Date,
         required: false,
         default: Date.now,
-        get: (date) => moment.utc(date).format('M-DD-YYYY')
+        get: (date) => moment.utc(date).format('M/D/YYYY')
     },
     startTime: {
         type: String,
-        required: false
+        required: false,
+        get: (startTime) => moment(startTime, 'HH:mm').format('h:mm A')
     },
     endTime: {
         type: String,
-        required: false
+        required: false,
+        get: (endTime) => moment(endTime, 'HH:mm').format('h:mm A')
     },
     type: {
         type: Array,

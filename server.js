@@ -10,7 +10,8 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const homeRoutes = require('./routes/home')
 const attackRoutes = require('./routes/attack')
-const port = process.env.PORT || 8080
+const summaryRoutes = require('./routes/summaries')
+const port = process.env.PORT || 8008
 
 // use .env file in config folder
 require('dotenv').config({path: './config/.env'})
@@ -54,6 +55,7 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/home', homeRoutes)
 app.use('/attack', attackRoutes)
+app.use('/summaries', summaryRoutes)
  
 // server running
 connectDB().then(() => {

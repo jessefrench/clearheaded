@@ -285,6 +285,8 @@ module.exports = {
             const painLocation = await PainLocation.findOne({userId: req.user.id}).sort({_id: -1})
 
             await Summary.create({
+                userId: req.user.id, 
+                email: req.user.email,
                 date: attackDate.date,
                 startTime: attackStartTime.startTime,
                 endTime: attackEndTime.endTime,

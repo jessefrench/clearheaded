@@ -70,15 +70,15 @@ export default function Home(props){
                   <input type="submit" className="btn btn-primary btn-outline" value="Add"/>
                 </div>
               </form>
-              <form action="/home/getTask" method="POST">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text">Find headaches from a specific date</span>
-                  </label>
+              <form action="/summaries" method="GET">
+                {/* <div className="form-control">
                   <input type="date" name="findTask" className="double input input-bordered"/>
-                </div>
+                </div> */}
                 <div className="form-control mt-6">
-                  <input type="submit" className="btn btn-primary btn-outline" value="Find"/>
+                  <label className="label">
+                    <span className="label-text">View previous records</span>
+                  </label>
+                  <input type="submit" className="btn btn-primary btn-outline" value="View"/>
                 </div>
               </form>
               <div className="logout"><a href="/logout">Log out</a></div>
