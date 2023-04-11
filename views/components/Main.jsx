@@ -18,7 +18,7 @@ export default function Main(props){
         </head>
         <body>
           {props.children}
-          <script type='module' src={'../js/main.js'}></script>
+          <script src={'../js/main.js'}></script>
         </body>
       </html>
     </>
