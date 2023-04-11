@@ -3,13 +3,10 @@ const Summary = require('../models/Summary')
 module.exports = {
     getSummaryArchive: async (req, res) => {
         try {
-            const allSummaryDocs = await Summary.find({}).sort({_id: -1})
-            const summaryDates = allSummaryDocs.map((records) => ({
-                id: records._id,
-                date: records.date
-            }))
-            const summaryData = await Summary.find({}).sort({_id: -1}).limit(1)
-            const summaryItems = summaryData.map((items) => ({
+            const summaryId = await Summary.findById(req.params.id)
+            const summaryData = await Summary.find({}).sort({_id: -1})
+            const selectedSummary = summaryData.map((items, index) => ({
+                i: index,
                 id: items._id,
                 date: items.date,
                 startTime: items.startTime,
@@ -26,28 +23,20 @@ module.exports = {
                 painLocation: items.painLocation.join(', ').toLowerCase()
             }))
             res.render('summaries', {
-                summaryItems,
-                summaryDates
+                selectedSummary,
+                summaryId
             })
         } catch (err) {
             console.log(err)
         }
     },
 
-    // getSummaryByDate: async (req, res) => {
-    //     try {
-    //         const allSummaryDocs = await Summary.findById(req.params.id)
-    //         console.log(allSummaryDocs)
-    //         const selectSummaryByDate = allSummaryDocs.map((records) => ({
-    //             id: records._id,
-    //             date: records.date
-    //         }))
-
-    //         res.render('summaries', {
-    //             selectSummaryByDate
-    //         })
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+    getSummaryById: async (req, res) => {
+        try {
+            const summaryId = await Summary.findById(req.params.id)
+            res.json(summaryId)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 }

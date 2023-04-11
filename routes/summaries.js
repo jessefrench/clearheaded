@@ -4,6 +4,6 @@ const summariesController = require('../controllers/summaries')
 const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, summariesController.getSummaryArchive)
-// router.get('/id', ensureAuth, summariesController.getSummaryByDate)
+router.get(`/:id`, ensureAuth, summariesController.getSummaryById)
 
 module.exports = router

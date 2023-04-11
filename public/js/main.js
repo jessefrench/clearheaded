@@ -4,39 +4,9 @@ const headacheImportant = document.querySelectorAll('.fa-circle-exclamation')
 const headacheNotImportant = document.querySelectorAll('.fa-circle-exclamation.important')
 const draggables = document.querySelectorAll('.draggable')
 const containers = document.querySelectorAll('.container')
-// const getSummaryDate = document.querySelectorAll('.summary-link')
-
-// Array.from(getSummaryDate).forEach((el) => {
-//     el.addEventListener('click', handleClick)
-// })
-
-// async function handleClick(event) {
-//     event.preventDefault()
-//     const headacheId = event.target.id
-//     try {
-//       const response = await fetch(`/summaries/${headacheId}`)
-//       const headache = await response.json()
-//       const summaryElement = document.getElementById('summaryList')
-//       summaryElement.innerHTML = `
-//         <ul key={id} id="summaryList" className="list-none">
-//             <li> <strong>Attack time:</strong> {headache.date} {headache.startTime}-{headache.endTime} </li>
-//             <li> <strong>Attack type:</strong> {headache.type.join(', ').toLowerCase()} </li>
-//             <li> <strong>Pain level:</strong> {headache.level} </li>
-//             <li> <strong>Attack location:</strong> {headache.attackLocation.toLowerCase()} </li>
-//             <li> <strong>Symptoms:</strong> {headache.symptoms.join(', ').toLowerCase()} </li>
-//             <li> <strong>Triggers:</strong> {headache.triggers.join(', ').toLowerCase()} </li>
-//             <li> <strong>Aura:</strong> {headache.aura.join(', ').toLowerCase()} </li>
-//             <li> <strong>Medication:</strong> {headache.medication.join(', ')} </li>
-//             <li> <strong>Relief methods:</strong> {headache.relief.join(', ').toLowerCase()} </li>
-//             <li> <strong>Activities affected:</strong> {headache.activities.join(', ').toLowerCase()} </li>
-//             <li> <strong>Pain location:</strong> {headache.painLocation.join(', ').toLowerCase()} </li>
-//         </ul>
-//       `
-//       document.getElementById('summaryList').appendChild(summaryElement)
-//     } catch (err) {
-//       console.error(err)
-//     }
-// }
+const checker = document.getElementById('checker')
+const summaryLink = document.querySelectorAll('.summary-link')
+const summaryList = document.getElementById('summary-list')
 
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
@@ -74,16 +44,78 @@ function getDragAfterElement(container, y) {
     }, { offset: Number.NEGATIVE_INFINITY }).element
 }
 
+Array.from(summaryLink).forEach((link) => {
+    link.addEventListener('click', handleClick)
+})
+
+async function handleClick(event) {
+    event.preventDefault()
+    const url = event.target.href
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            dataType: 'json'
+        })
+        const summaryId = await response.json()
+        const dateStr = summaryId.date
+        const dateNew = new Date(dateStr)
+        const date = dateNew.toLocaleDateString('en-US', {
+            month: "numeric",
+            day: "numeric",
+            year: "numeric"
+        })
+        const startTimeStr = summaryId.startTime
+        const [hours, minutes] = startTimeStr.split(':')
+        const startTimeNew = new Date()
+        startTimeNew.setHours(hours, minutes)
+        const startTime = startTimeNew.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        })
+        const endTimeStr = summaryId.endTime
+        const [hrs, mins] = endTimeStr.split(':')
+        const endTimeNew = new Date()
+        endTimeNew.setHours(hrs, mins)
+        const endTime = endTimeNew.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        })
+        const type = summaryId.type.join(', ').toLowerCase()
+        const level = summaryId.level
+        const attackLocation = summaryId.attackLocation.toLowerCase()
+        const symptoms = summaryId.symptoms.join(', ').toLowerCase()
+        const triggers = summaryId.triggers.join(', ').toLowerCase()
+        const aura = summaryId.aura.join(', ').toLowerCase()
+        const medication = summaryId.medication.join(', ')
+        const relief = summaryId.relief.join(', ').toLowerCase()
+        const activities = summaryId.activities.join(', ').toLowerCase()
+        const painLocation = summaryId.painLocation.join(', ').toLowerCase() 
+        summaryList.innerHTML = `
+            <ul id="summary-list" className="list-none">
+                <li> <strong>Attack date:</strong> ${date} </li>
+                <li> <strong>Attack time:</strong> ${startTime} - ${endTime} </li>
+                <li> <strong>Attack type:</strong> ${type} </li>
+                <li> <strong>Pain level:</strong> ${level} </li>
+                <li> <strong>Attack location:</strong> ${attackLocation} </li>
+                <li> <strong>Symptoms:</strong> ${symptoms} </li>
+                <li> <strong>Triggers:</strong> ${triggers} </li>
+                <li> <strong>Aura:</strong> ${aura} </li>
+                <li> <strong>Medication:</strong> ${medication} </li>
+                <li> <strong>Relief methods:</strong> ${relief} </li>
+                <li> <strong>Activities affected:</strong> ${activities} </li>
+                <li> <strong>Pain location:</strong> ${painLocation} </li>
+            </ul>
+        `
+        console.log(summaryId)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 Array.from(deleteBtn).forEach((el) => {
     el.addEventListener('click', deleteHeadache)
-})
-
-Array.from(headacheImportant).forEach((el) => {
-    el.addEventListener('click', markImportant)
-})
-
-Array.from(headacheNotImportant).forEach((el) => {
-    el.addEventListener('click', markNotImportant)
 })
 
 async function deleteHeadache(){
@@ -106,6 +138,10 @@ async function deleteHeadache(){
     }
 }
 
+Array.from(headacheImportant).forEach((el) => {
+    el.addEventListener('click', markImportant)
+})
+
 async function markImportant() {
     const headacheId = this.parentNode.dataset.id
     try {
@@ -123,6 +159,10 @@ async function markImportant() {
         console.log(err)
     }
 }
+
+Array.from(headacheNotImportant).forEach((el) => {
+    el.addEventListener('click', markNotImportant)
+})
 
 async function markNotImportant() {
     const headacheId = this.parentNode.dataset.id
@@ -142,11 +182,19 @@ async function markNotImportant() {
     }
 }
 
-document.getElementById('checker').onchange = function() {
-    if(this.checked === true){
-        document.getElementById("userInput").disabled = false
-        document.getElementById("userInput").focus()
-    }else{
-        document.getElementById("userInput").disabled = true
+if (checker) {
+    checker.addEventListener('change', toggleInput)
+}
+
+async function toggleInput() {
+    try {
+        if (this.checked === true) {
+            document.getElementById("userInput").disabled = false
+            document.getElementById("userInput").focus()
+        } else {
+            document.getElementById("userInput").disabled = true
+        }
+    } catch (error) {
+        console.log(error)
     }
 }
