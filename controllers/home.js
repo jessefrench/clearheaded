@@ -1,28 +1,9 @@
 const Headache = require('../models/Headache')
-const AttackTime = require('../models/AttackTime')
-const AttackType = require('../models/AttackType')
-const moment = require('moment')
 
 module.exports = {
     getHeadaches: async (req, res) => {
         try{
             const headacheItems = await Headache.find({userId: req.user.id}).sort({completed: 1}).sort({date: 1})
-            const itemsLeft = await Headache.countDocuments({userId: req.user.id, completed: false})
-            const recordedAttackType = await AttackType.findOne({userId: req.user.id}).sort({_id: -1})
-            const recordedAttackDate = await AttackTime.findOne({userId: req.user.id}).sort({_id: -1})
-            res.render('home', {
-                headaches: headacheItems,
-                left: itemsLeft,
-                user: req.user
-            })
-        }catch(err){
-            console.log(err)
-        }
-    },
-    getTask: async (req, res) => {
-        try{
-            const setDate = moment(req.body.findTask).format("YYYY-MM-DD").toString()
-            const headacheItems = await Headache.find({userId: req.user.id}).find({date: {$gte: new Date(req.body.findTask), $lte: new Date(req.body.findTask)}})
             const itemsLeft = await Headache.countDocuments({userId: req.user.id, completed: false})
             res.render('home', {
                 headaches: headacheItems,

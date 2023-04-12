@@ -71,9 +71,6 @@ export default function Home(props){
                 </div>
               </form>
               <form action="/summaries" method="GET">
-                {/* <div className="form-control">
-                  <input type="date" name="findTask" className="double input input-bordered"/>
-                </div> */}
                 <div className="form-control mt-6">
                   <label className="label">
                     <span className="label-text">View previous records</span>

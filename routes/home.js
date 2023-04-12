@@ -4,7 +4,6 @@ const homeController = require('../controllers/home')
 const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, homeController.getHeadaches)
-router.post('/getTask', homeController.getTask)
 router.post('/createHeadache', homeController.createHeadache)
 router.delete('/deleteHeadache', homeController.deleteHeadache)
 router.put('/markImportant', homeController.markImportant)
